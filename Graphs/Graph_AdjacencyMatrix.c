@@ -26,7 +26,7 @@ struct graph {
 // *****************************************************************************
 
 // Initialises two-dimensional array filled with zeroes
-// Time complexity: O(V^2) (for two-dimensional array)
+// Time complexity: O(V) (for two-dimensional array)
 Graph newGraph(int V) {
     Graph g = malloc(sizeof(struct graph));
     if (g == NULL) {
