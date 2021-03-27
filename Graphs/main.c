@@ -1,4 +1,5 @@
 // Program written by Adam Brieger on 27/03/2021
+// Intention of program is to test the graph ADT
  
 #include <stdio.h>
 

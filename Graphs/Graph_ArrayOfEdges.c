@@ -7,7 +7,7 @@
 #include <assert.h>
 #include "Graph.h"
 
-// Use <stdint.h> if included with compiler
+// Use <stdbool.h> if included with compiler
 #define true 1
 #define false 0
 
