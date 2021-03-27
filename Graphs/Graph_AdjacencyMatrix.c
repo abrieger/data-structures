@@ -15,12 +15,10 @@ struct graph {
     int nV; // Number of vertices
     int nE; // Number of edges
     Vertex **edges; // Two-dimensional array of vertices
-    int maxV; // Size of array
 };
 
 // *****************************************************************************
 // Helper function prototypes:
-
 
 
 // *****************************************************************************
