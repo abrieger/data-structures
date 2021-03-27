@@ -10,4 +10,4 @@ Currently includes:
 
 Coming soon:
 - adjacency list implementation for Graph ADT
-- makefile for compiler
+- linked list ADT
