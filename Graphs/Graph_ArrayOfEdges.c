@@ -35,11 +35,14 @@ static int doesEdgeExist(Edge e1, Edge e2);
 Graph newGraph(int V) {
     Graph g = malloc(sizeof(struct graph));
     if (g == NULL) {
-        fprintf(stderr, "error: unable to allocate memory\n");
+        fprintf(stderr, "error: unable to allocate memory for graph array\n");
     }
     g->nV = V;
     g->nE = 0;
     g->edges = malloc(sizeof(struct edge) * MAX_EDGES);
+    if (g->edges == NULL) {
+        fprintf(stderr, "error: unable to allocate memory for edges array\n");
+    }
     return g;
 }
 
@@ -120,9 +123,12 @@ void printEdges(Graph g) {
 }
 
 // Frees all edges in graph
-// Time complexity: O(1)
+// Time complexity: O(E) (must free all edges)
 void freeGraph(Graph g) {
     if (g == NULL) return; // Graph does not exist
+    for (int i = 0; i < g->nE; i++) {
+        free(g->edges[i]);
+    }
     free(g->edges);
     free(g);
 }
