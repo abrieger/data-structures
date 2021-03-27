@@ -111,7 +111,7 @@ void printEdges(Graph g) {
 // Frees all edges in graph
 // Time complexity: O(E) (must free all edges)
 void freeGraph(Graph g) {
-    if (g == NULL) return; // Graph does not exist
+    assert(g != NULL); // Graph does not exist
 
     free(g->edges);
     free(g);
