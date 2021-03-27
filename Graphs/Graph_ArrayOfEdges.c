@@ -1,6 +1,6 @@
 // Graph data structure implementation using array of edges
 // Note: the graph is undirected
-// Written by Adam Brieger on 27/03/2021, based on UNSW COMP2521 algorithms
+// Written by Adam Brieger on 27/03/2021, based on UNSW COMP2521 algorithm.
 
 #include <stdio.h>
 #include <stdlib.h>
