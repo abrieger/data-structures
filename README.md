@@ -6,7 +6,8 @@ All ADTs are works in progress. They will continue to be refined and have new fu
 Currently includes:
 - Graph ADT implemented by
   - array of edges
+  - adjacency matrix
 
 Coming soon:
-- adjacency matrix implementation for Graph ADT
+- adjacency list implementation for Graph ADT
 - makefile for compiler
