@@ -18,11 +18,6 @@ struct graph {
     int maxE; // Size of array
 };
 
-struct edge {
-    Vertex v;
-    Vertex w;
-};
-
 // *****************************************************************************
 // Helper function prototypes:
 
@@ -46,26 +41,17 @@ Graph newGraph(int V) {
     return g;
 }
 
-// Creates edge struct
-// Time complexity: O(1)
-Edge createEdge(int new_v, int new_w) {
-    Edge e = malloc(sizeof(struct edge));
-    e->v = new_v;
-    e->w = new_w;
-    return e;
-} 
-
 // Prints the edge
 // Time complexity: O(1)
 void showEdge(Edge e) {
-    printf("%d - %d\n", e->v, e->w);
+    printf("%d - %d\n", e.v, e.w);
 }
 
 // Checks whether edge already exists
 // Time complexity: O(1)
 static int doesEdgeExist(Edge e1, Edge e2) {
-    if (e1->v == e2->v && e1->w == e2->w) return true; // Duplicate
-    if (e1->v == e2->w && e1->w == e2->v) return true; // Duplicate
+    if (e1.v == e2.v && e1.w == e2.w) return true; // Duplicate
+    if (e1.v == e2.w && e1.w == e2.v) return true; // Duplicate
 
     // Unique
     return false;
@@ -118,7 +104,7 @@ void printEdges(Graph g) {
 
     for (int i = 0; i < g->nE; i++) {
         Edge curr_e = g->edges[i];
-        printf("%d - %d\n", curr_e->v, curr_e->w);
+        printf("%d - %d\n", curr_e.v, curr_e.w);
     }
 }
 
@@ -126,9 +112,7 @@ void printEdges(Graph g) {
 // Time complexity: O(E) (must free all edges)
 void freeGraph(Graph g) {
     if (g == NULL) return; // Graph does not exist
-    for (int i = 0; i < g->nE; i++) {
-        free(g->edges[i]);
-    }
+
     free(g->edges);
     free(g);
 }

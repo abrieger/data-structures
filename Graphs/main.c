@@ -5,49 +5,48 @@
 
 #include "Graph.h"
 
+#define MAX_VERTICES 10
+
 int main(void) {
-    Graph g = newGraph(5);
-    Edge e1 = createEdge(1,2);
-    Edge e2 = createEdge(2,3);
-    Edge e3 = createEdge(2,3);
+    Graph g = newGraph(MAX_VERTICES);
+    Edge e;
 
-    // Insertion will succeed:
-    if (insertEdge(g, e1)) {
-        printf("Successfully inserted: ");
-    } else {
-        printf("Failed to insert: ");
+    printf("Menu\n");
+    printf("1. Insert edge\n");
+    printf("2. Remove edge\n");
+    printf("3. Display edges in graph\n");
+    printf("4. Exit\n");
+
+    printf("Enter choice: \n");
+    int ch;
+    scanf("%d", &ch);
+    while (ch < 4) {
+        switch(ch) {
+            case 1: printf("Enter edge vertices: ");
+                scanf("%d %d", &(e.v), &(e.w));
+                if (insertEdge(g, e)) {
+                    printf("Successfully inserted: ");
+                } else {
+                    printf("Failed to insert: ");
+                }            
+                showEdge(e);
+                break;
+            case 2: printf("Enter edge vertices: ");
+                scanf("%d %d", &(e.v), &(e.w));
+                if (removeEdge(g, e)) {
+                    printf("Successfully removed: ");
+                } else {
+                    printf("Failed to remove: ");
+                }            
+                showEdge(e);
+                break;
+            case 3: printf("Graph edges now include: \n");
+                printEdges(g);
+                break;
+        } 
+        printf("Enter choice: \n");
+        scanf("%d", &ch);
     }
-    showEdge(e1);
-
-    // Insertion will succeed:
-    if (insertEdge(g, e2)) {
-        printf("Successfully inserted: ");
-    } else {
-        printf("Failed to insert: ");
-    }
-    showEdge(e2);
-
-    // Insertion will fail since duplicate:
-    if (insertEdge(g, e3)) {
-        printf("Successfully inserted: ");
-    } else {
-        printf("Failed to insert: ");
-    }
-    showEdge(e3);
-
-    printf("Graph edges now include: \n");
-    printEdges(g); // Output: "2 - 3" "2 - 3"
-
-    // Deletion will succeed:
-    if (removeEdge(g, e2)) {
-        printf("Successfully removed: ");
-    } else {
-        printf("Failed to remove: ");
-    }
-    showEdge(e2);
-
-    printf("Graph edges now include: \n");
-    printEdges(g); // Output: "2 - 3"
 
     freeGraph(g);
     return 0;

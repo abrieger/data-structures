@@ -8,14 +8,13 @@
 
 typedef struct graph *Graph;
 typedef int Vertex;
-typedef struct edge *Edge;
-
+typedef struct edge {
+    Vertex v;
+    Vertex w;   
+} Edge;
 
 // Creates new graph with space for V vertices
 Graph newGraph(int V);
-
-// Creates new edge between vertices v and w
-Edge createEdge(int v, int w);
 
 // Shows the specified edge
 void showEdge(Edge e);
